@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta tags básicos para SEO -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CorvexDev — Tomás Corbo, desarrollador full stack freelance. Sitios web modernos, aplicaciones web a medida, integración de APIs y mantenimiento." />
+  <meta name="keywords" content="CorvexDev, Tomás Corbo, desarrollador full stack, freelance, desarrollo web, HTML, CSS, JavaScript, Python" />
+  <meta name="author" content="Tomás Corbo - CorvexDev" />
+
+  <!-- Open Graph (para compartir en redes) -->
+  <meta property="og:title" content="CorvexDev — Tomás Corbo | Desarrollador Full Stack" />
+  <meta property="og:description" content="Sitios web modernos, aplicaciones a medida y soluciones full stack. Desarrollo freelance con foco en calidad y rendimiento." />
+  <meta property="og:type" content="website" />
+
+  <title>CorvexDev — Tomás Corbo | Desarrollador Full Stack Freelance</title>
+
+  <!-- Favicon inline (gradiente con letra C) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%237c3aed'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='Segoe UI,Arial' font-size='60' font-weight='800' fill='white'%3EC%3C/text%3E%3C/svg%3E" />
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ====================== HEADER / NAVEGACIÓN ====================== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <!-- Logo -->
+      <a href="#inicio" class="nav__logo">
+        <span class="nav__logo-mark">C</span>
+        <span class="nav__logo-text">CorvexDev</span>
+      </a>
+
+      <!-- Links de navegación (desktop) -->
+      <ul class="nav__list" id="navList">
+        <li><a href="#inicio" class="nav__link">Inicio</a></li>
+        <li><a href="#servicios" class="nav__link">Servicios</a></li>
+        <li><a href="#proyecto" class="nav__link">Proyecto</a></li>
+        <li><a href="#sobre-mi" class="nav__link">Sobre mí</a></li>
+        <li><a href="#contacto" class="nav__link">Contacto</a></li>
+      </ul>
+
+      <!-- Botón hamburguesa (mobile) -->
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ====================== HERO ====================== -->
+    <section class="hero" id="inicio">
+      <!-- Formas flotantes decorativas (CSS) -->
+      <div class="hero__shapes" aria-hidden="true">
+        <span class="shape shape--1"></span>
+        <span class="shape shape--2"></span>
+        <span class="shape shape--3"></span>
+      </div>
+
+      <div class="container hero__inner">
+        <p class="hero__greeting">Hola, soy</p>
+        <h1 class="hero__title">
+          <span class="hero__title-name">Tomás Corbo</span>
+          <span class="hero__title-role gradient-text">Desarrollador Full Stack</span>
+        </h1>
+        <p class="hero__description">
+          Construyo sitios web modernos, aplicaciones a medida y soluciones digitales
+          para emprendedores, PyMEs e instituciones que quieren dar el salto a la web
+          con diseño cuidado, código limpio y rendimiento real.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#proyecto" class="btn btn--primary">Ver mi trabajo</a>
+          <a href="#contacto" class="btn btn--ghost">Contactame</a>
+        </div>
+
+        <!-- Indicador de scroll -->
+        <div class="hero__scroll" aria-hidden="true">
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== SERVICIOS ====================== -->
+    <section class="section servicios" id="servicios">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__eyebrow">Servicios</span>
+          <h2 class="section__title">¿Qué puedo hacer por vos?</h2>
+          <p class="section__subtitle">
+            Soluciones digitales pensadas para tu proyecto, sin plantillas genéricas.
+          </p>
+        </header>
+
+        <div class="cards">
+          <!-- Tarjeta 1 -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3 class="card__title">Sitios web modernos</h3>
+            <p class="card__text">
+              Landing pages y sitios institucionales rápidos, responsive y con un
+              diseño cuidado que refleja la identidad de tu marca.
+            </p>
+          </article>
+
+          <!-- Tarjeta 2 -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="card__title">Apps web full stack</h3>
+            <p class="card__text">
+              Aplicaciones completas con frontend, backend y base de datos:
+              paneles, dashboards, sistemas internos y más.
+            </p>
+          </article>
+
+          <!-- Tarjeta 3 -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <h3 class="card__title">Mantenimiento &amp; optimización</h3>
+            <p class="card__text">
+              Mejoro la velocidad, accesibilidad y SEO de sitios existentes.
+              Refactors, correcciones y actualizaciones seguras.
+            </p>
+          </article>
+
+          <!-- Tarjeta 4 -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/></svg>
+            </div>
+            <h3 class="card__title">APIs &amp; backend</h3>
+            <p class="card__text">
+              Integración con servicios externos, desarrollo de APIs REST y
+              conexión de tu sitio con bases de datos y plataformas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PROYECTO DESTACADO ====================== -->
+    <section class="section proyecto" id="proyecto">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__eyebrow">Proyecto destacado</span>
+          <h2 class="section__title">Trabajo reciente</h2>
+        </header>
+
+        <article class="project reveal">
+          <!-- Mockup del proyecto (placeholder visual generado con CSS) -->
+          <div class="project__mockup" aria-hidden="true">
+            <div class="mockup__browser">
+              <div class="mockup__dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="mockup__screen">
+                <div class="mockup__bar"></div>
+                <div class="mockup__bar mockup__bar--short"></div>
+                <div class="mockup__grid">
+                  <div></div><div></div><div></div>
+                </div>
+                <div class="mockup__bar"></div>
+                <div class="mockup__bar mockup__bar--short"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info del proyecto -->
+          <div class="project__info">
+            <h3 class="project__title">
+              Escuela Secundaria Río Negro N°23 — Sitio Web Institucional
+            </h3>
+            <p class="project__description">
+              Web institucional completa para una escuela secundaria: información
+              general, autoridades, áreas curriculares, novedades y formulario de
+              contacto. Diseñada para que la comunidad educativa encuentre todo
+              lo que necesita en pocos clics.
+            </p>
+
+            <ul class="project__tags" aria-label="Tecnologías utilizadas">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+
+            <div class="project__actions">
+              <a href="#" class="btn btn--primary" target="_blank" rel="noopener">Ver demo</a>
+              <a href="#" class="btn btn--ghost" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================== SOBRE MÍ ====================== -->
+    <section class="section sobre-mi" id="sobre-mi">
+      <div class="container sobre-mi__grid">
+        <!-- Foto placeholder -->
+        <div class="sobre-mi__photo reveal">
+          <div class="photo-frame">
+            <!-- Placeholder generado con iniciales -->
+            <span class="photo-initials">TC</span>
+          </div>
+        </div>
+
+        <!-- Bio y skills -->
+        <div class="sobre-mi__content reveal">
+          <span class="section__eyebrow">Sobre mí</span>
+          <h2 class="section__title">Tomás Corbo, desarrollador freelance</h2>
+          <p class="sobre-mi__text">
+            Soy desarrollador full stack y trabajo de forma independiente ayudando
+            a personas, emprendedores y organizaciones a llevar sus ideas a la
+            web. Me enfoco en escribir código limpio, accesible y mantenible, con
+            atención al detalle tanto en el frontend como en el backend.
+          </p>
+          <p class="sobre-mi__text">
+            Disfruto aprender cosas nuevas en cada proyecto y encontrar la
+            solución técnica que mejor se ajusta a cada necesidad.
+          </p>
+
+          <h3 class="sobre-mi__skills-title">Tecnologías que uso</h3>
+          <ul class="skills">
+            <li class="skill"><span class="skill__dot"></span>HTML</li>
+            <li class="skill"><span class="skill__dot"></span>CSS</li>
+            <li class="skill"><span class="skill__dot"></span>JavaScript</li>
+            <li class="skill"><span class="skill__dot"></span>Python</li>
+            <li class="skill"><span class="skill__dot"></span>SQL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACTO ====================== -->
+    <section class="section contacto" id="contacto">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__eyebrow">Contacto</span>
+          <h2 class="section__title">¿Hablamos de tu proyecto?</h2>
+          <p class="section__subtitle">
+            Contame brevemente qué necesitás y te respondo a la brevedad.
+          </p>
+        </header>
+
+        <div class="contacto__grid">
+          <!-- Formulario -->
+          <form class="form reveal" id="contactForm" novalidate>
+            <div class="form__group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+              <small class="form__error" data-error="nombre"></small>
+            </div>
+
+            <div class="form__group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+              <small class="form__error" data-error="email"></small>
+            </div>
+
+            <div class="form__group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Contame sobre tu proyecto..." required></textarea>
+              <small class="form__error" data-error="mensaje"></small>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block">Enviar mensaje</button>
+            <p class="form__success" id="formSuccess" hidden>¡Mensaje enviado! Te responderé pronto.</p>
+          </form>
+
+          <!-- Datos de contacto -->
+          <aside class="contacto__info reveal">
+            <h3>También podés encontrarme en</h3>
+            <ul class="contacto__list">
+              <li>
+                <span class="contacto__label">Email</span>
+                <a href="mailto:hola@corvexdev.com">hola@corvexdev.com</a>
+              </li>
+              <li>
+                <span class="contacto__label">GitHub</span>
+                <a href="https://github.com/" target="_blank" rel="noopener">github.com/corvexdev</a>
+              </li>
+              <li>
+                <span class="contacto__label">LinkedIn</span>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/corvexdev</a>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">
+        © <span id="year"></span> <strong>CorvexDev</strong> — Tomás Corbo. Todos los derechos reservados.
+      </p>
+      <ul class="footer__social" aria-label="Redes sociales">
+        <li><a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a></li>
+        <li><a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+        <li><a href="mailto:hola@corvexdev.com" aria-label="Email">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>
