@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Fondo: gradiente oscuro coherente con la web -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0b1a"/>
+      <stop offset="1" stop-color="#11112a"/>
+    </linearGradient>
+
+    <!-- Halo/glow decorativo (3 orbes) -->
+    <radialGradient id="glow1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#06b6d4" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ec4899" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#ec4899" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Gradiente del logo (mismo que la web) -->
+    <linearGradient id="logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="0.5" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <!-- Gradiente del texto principal -->
+    <linearGradient id="text" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="0.5" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Orbes decorativos -->
+  <circle cx="180" cy="140" r="320" fill="url(#glow1)"/>
+  <circle cx="1050" cy="500" r="280" fill="url(#glow2)"/>
+  <circle cx="980" cy="120" r="200" fill="url(#glow3)"/>
+
+  <!-- Logo "C" -->
+  <g transform="translate(80, 200)">
+    <rect width="120" height="120" rx="26" fill="url(#logo)"/>
+    <text x="60" y="86" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="78" font-weight="800" fill="#ffffff">C</text>
+  </g>
+
+  <!-- Marca -->
+  <text x="230" y="293" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="800" fill="#e6e7ee">CorvexDev</text>
+
+  <!-- Título principal -->
+  <text x="80" y="400" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="800" fill="url(#text)">Desarrollador Full Stack</text>
+  <text x="80" y="478" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="800" fill="#e6e7ee">Freelance</text>
+
+  <!-- Subtítulo -->
+  <text x="80" y="540" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="500" fill="#a1a3b8">Tomás Corbo · Sitios web modernos · Apps a medida · APIs</text>
+</svg>

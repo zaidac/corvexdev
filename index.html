@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta tags básicos para SEO -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CorvexDev — Tomás Corbo, desarrollador full stack freelance. Sitios web modernos, aplicaciones web a medida, integración de APIs y mantenimiento." />
+  <meta name="author" content="Tomás Corbo - CorvexDev" />
+  <meta name="theme-color" content="#0b0b1a" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Content-Security-Policy vía meta. Defensa en profundidad contra XSS.
+       - default-src 'self'         → solo recursos del mismo origen por defecto
+       - script-src 'self' jsdelivr → SDK de Supabase (SRI lo valida)
+       - style-src  'self' 'unsafe-inline' → <style> inline en <head> y SVG
+       - img-src    'self' data: https://*.supabase.co → favicon SVG inline + imágenes de proyectos
+       - font-src   'self' data: → solo fuentes del sistema (sin externas)
+       - connect-src 'self' https://*.supabase.co https://formspree.io
+                                     → fetch a Supabase (proyectos) y Formspree (form)
+       - form-action 'self' https://formspree.io → el form solo puede postear a Formspree
+       - frame-ancestors 'none'    → no nos pueden embeber (anti-clickjacking)
+       - base-uri 'self'           → <base> solo puede apuntar a nosotros
+       - object-src 'none'         → no <object>/<embed>/<applet>
+       Si más adelante agregás Google Fonts o un CDN de imágenes, sumá la URL acá. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://cdn.jsdelivr.net;
+    style-src  'self' 'unsafe-inline';
+    img-src    'self' data: https://*.supabase.co;
+    font-src   'self' data:;
+    connect-src 'self' https://*.supabase.co https://formspree.io;
+    form-action 'self' https://formspree.io;
+    frame-ancestors 'none';
+    base-uri 'self';
+    object-src 'none';
+  " />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://zaidac.github.io/corvexdev/" />
+
+  <!-- Sitemap y robots (los archivos viven en la raíz del repo) -->
+  <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+
+  <!-- Preconnect / DNS prefetch. Abre el TCP+TLS handshake antes de que
+       el HTML llegue al script, así el fetch del SDK y de Supabase
+       empieza en paralelo con el parseo. -->
+  <link rel="preconnect" href="https://eblcvxjqayurrvbcaflw.supabase.co" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+  <!-- Open Graph (para compartir en redes) -->
+  <meta property="og:title" content="CorvexDev — Tomás Corbo | Desarrollador Full Stack" />
+  <meta property="og:description" content="Sitios web modernos, aplicaciones a medida y soluciones full stack. Desarrollo freelance con foco en calidad y rendimiento." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zaidac.github.io/corvexdev/" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="CorvexDev" />
+  <meta property="og:image" content="https://zaidac.github.io/corvexdev/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="CorvexDev — Tomás Corbo, desarrollador full stack freelance" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CorvexDev — Tomás Corbo | Desarrollador Full Stack" />
+  <meta name="twitter:description" content="Sitios web modernos, aplicaciones a medida y soluciones full stack freelance." />
+  <meta name="twitter:image" content="https://zaidac.github.io/corvexdev/og-image.svg" />
+
+  <!-- Datos estructurados (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://zaidac.github.io/corvexdev/#person",
+        "name": "Tomás Corbo",
+        "alternateName": "CorvexDev",
+        "jobTitle": "Desarrollador Full Stack Freelance",
+        "url": "https://zaidac.github.io/corvexdev/",
+        "sameAs": [
+          "https://github.com/zaidac"
+        ],
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "Python", "SQL"]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://zaidac.github.io/corvexdev/#service",
+        "name": "CorvexDev",
+        "founder": { "@id": "https://zaidac.github.io/corvexdev/#person" },
+        "url": "https://zaidac.github.io/corvexdev/",
+        "description": "Desarrollo freelance: sitios web modernos, aplicaciones full stack, integración de APIs y mantenimiento.",
+        "serviceType": ["Sitios web", "Aplicaciones web", "APIs", "Mantenimiento"],
+        "areaServed": { "@type": "Country", "name": "Argentina" }
+      }
+    ]
+  }
+  </script>
+
+  <title>CorvexDev — Tomás Corbo | Desarrollador Full Stack Freelance</title>
+
+  <!-- Favicon inline (gradiente con letra C) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%237c3aed'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='Segoe UI,Arial' font-size='60' font-weight='800' fill='white'%3EC%3C/text%3E%3C/svg%3E" />
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Skip link (accesibilidad teclado) -->
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <!-- ====================== HEADER / NAVEGACIÓN ====================== -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <!-- Logo -->
+      <a href="#inicio" class="nav__logo">
+        <span class="nav__logo-mark" aria-hidden="true">C</span>
+        <span class="nav__logo-text">CorvexDev</span>
+      </a>
+
+      <!-- Links de navegación (desktop) -->
+      <ul class="nav__list" id="navList">
+        <li><a href="#inicio" class="nav__link">Inicio</a></li>
+        <li><a href="#servicios" class="nav__link">Servicios</a></li>
+        <li><a href="#proyectos" class="nav__link">Proyectos</a></li>
+        <li><a href="#sobre-mi" class="nav__link">Sobre mí</a></li>
+        <li><a href="#contacto" class="nav__link">Contacto</a></li>
+      </ul>
+
+      <!-- Botón hamburguesa (mobile) -->
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ====================== HERO ====================== -->
+    <section class="hero" id="inicio">
+      <!-- Formas flotantes decorativas (CSS) -->
+      <div class="hero__shapes" aria-hidden="true">
+        <span class="shape shape--1"></span>
+        <span class="shape shape--2"></span>
+        <span class="shape shape--3"></span>
+      </div>
+
+      <div class="container hero__inner">
+        <h1 class="hero__title">
+          <span class="hero__title-name">¿Listo para llevar</span>
+          <span class="hero__title-name">tu proyecto a la web?</span>
+          <span class="hero__title-role gradient-text">Sitios y apps a medida</span>
+        </h1>
+        <p class="hero__description">
+          Desarrollo sitios web, aplicaciones full stack y soluciones digitales
+          para emprendedores, PyMEs e instituciones que quieren dar el salto
+          a la web con diseño cuidado, código limpio y rendimiento real.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#proyectos" class="btn btn--primary">Ver mi trabajo</a>
+          <a href="#contacto" class="btn btn--ghost">Contactame</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== SERVICIOS ====================== -->
+    <section class="section servicios" id="servicios">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__eyebrow">Servicios</span>
+          <h2 class="section__title">¿Qué puedo hacer por vos?</h2>
+          <p class="section__subtitle">
+            Soluciones digitales pensadas para tu proyecto, sin plantillas genéricas.
+          </p>
+        </header>
+
+        <div class="cards">
+          <!-- Tarjeta 1 -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3 class="card__title">Sitios web modernos</h3>
+            <p class="card__text">
+              Landing pages y sitios institucionales rápidos, responsive y con un
+              diseño cuidado que refleja la identidad de tu marca.
+            </p>
+          </article>
+
+          <!-- Tarjeta 2 -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="card__title">Apps web full stack</h3>
+            <p class="card__text">
+              Aplicaciones completas con frontend, backend y base de datos:
+              paneles, dashboards, sistemas internos y más.
+            </p>
+          </article>
+
+          <!-- Tarjeta 3 -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <h3 class="card__title">Mantenimiento &amp; optimización</h3>
+            <p class="card__text">
+              Mejoro la velocidad, accesibilidad y SEO de sitios existentes.
+              Refactors, correcciones y actualizaciones seguras.
+            </p>
+          </article>
+
+          <!-- Tarjeta 4 -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/></svg>
+            </div>
+            <h3 class="card__title">APIs &amp; backend</h3>
+            <p class="card__text">
+              Integración con servicios externos, desarrollo de APIs REST y
+              conexión de tu sitio con bases de datos y plataformas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PROYECTOS DESTACADOS ======================
+         El contenido lo trae projects-public.js desde Supabase.
+         Los 3 esqueletos visibles son el estado de carga inicial;
+         se reemplazan cuando llega la respuesta. -->
+    <section class="section proyectos" id="proyectos">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__eyebrow">Proyectos destacados</span>
+          <h2 class="section__title">Trabajo reciente</h2>
+          <p class="section__subtitle">
+            Una selección de lo último que vengo construyendo.
+          </p>
+        </header>
+
+        <div class="projects-grid" id="projectsGrid" aria-busy="true" aria-live="polite">
+          <!-- Skeletons (estado de carga) -->
+          <div class="project-card project-card--skeleton" aria-hidden="true">
+            <div class="project-card__media skeleton-shimmer"></div>
+            <div class="project-card__body">
+              <div class="skeleton-line skeleton-line--title"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line skeleton-line--short"></div>
+            </div>
+          </div>
+          <div class="project-card project-card--skeleton" aria-hidden="true">
+            <div class="project-card__media skeleton-shimmer"></div>
+            <div class="project-card__body">
+              <div class="skeleton-line skeleton-line--title"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line skeleton-line--short"></div>
+            </div>
+          </div>
+          <div class="project-card project-card--skeleton" aria-hidden="true">
+            <div class="project-card__media skeleton-shimmer"></div>
+            <div class="project-card__body">
+              <div class="skeleton-line skeleton-line--title"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line skeleton-line--short"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty state: visible solo si Supabase devuelve un array vacío -->
+        <p class="projects-empty" id="projectsEmpty" hidden>
+          Todavía no hay proyectos cargados. Volvé pronto.
+        </p>
+
+        <!-- Error state: visible solo si el fetch falla -->
+        <p class="projects-error" id="projectsError" hidden role="alert">
+          No pudimos cargar los proyectos. Intentá recargar la página.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================== SOBRE MÍ ====================== -->
+    <section class="section sobre-mi" id="sobre-mi">
+      <div class="container sobre-mi__grid">
+        <!-- Foto placeholder -->
+        <div class="sobre-mi__photo reveal">
+          <div class="photo-frame">
+            <!-- Placeholder generado con iniciales -->
+            <span class="photo-initials">TC</span>
+          </div>
+        </div>
+
+        <!-- Bio y skills -->
+        <div class="sobre-mi__content reveal">
+          <span class="section__eyebrow">Sobre mí</span>
+          <h2 class="section__title">Tomás Corbo, desarrollador freelance</h2>
+          <p class="sobre-mi__text">
+            Soy desarrollador full stack y trabajo de forma independiente ayudando
+            a personas, emprendedores y organizaciones a llevar sus ideas a la
+            web. Me enfoco en escribir código limpio, accesible y mantenible, con
+            atención al detalle tanto en el frontend como en el backend.
+          </p>
+          <p class="sobre-mi__text">
+            Disfruto aprender cosas nuevas en cada proyecto y encontrar la
+            solución técnica que mejor se ajusta a cada necesidad.
+          </p>
+
+          <h3 class="sobre-mi__skills-title">Cómo trabajo</h3>
+          <ul class="skills">
+            <li class="skill"><span class="skill__dot"></span>Comunicación clara en cada etapa</li>
+            <li class="skill"><span class="skill__dot"></span>Presupuestos transparentes</li>
+            <li class="skill"><span class="skill__dot"></span>Entregas iterativas</li>
+            <li class="skill"><span class="skill__dot"></span>Soporte post-entrega</li>
+          </ul>
+
+          <h3 class="sobre-mi__skills-title">Tecnologías que uso</h3>
+          <ul class="skills">
+            <li class="skill"><span class="skill__dot"></span>HTML</li>
+            <li class="skill"><span class="skill__dot"></span>CSS</li>
+            <li class="skill"><span class="skill__dot"></span>JavaScript</li>
+            <li class="skill"><span class="skill__dot"></span>Python</li>
+            <li class="skill"><span class="skill__dot"></span>SQL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACTO ====================== -->
+    <section class="section contacto" id="contacto">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__eyebrow">Contacto</span>
+          <h2 class="section__title">¿Hablamos de tu proyecto?</h2>
+          <p class="section__subtitle">
+            Contame brevemente qué necesitás y te respondo a la brevedad.
+          </p>
+        </header>
+
+        <div class="contacto__grid">
+          <!-- Formulario. Apunta directo a Formspree: si JS falla, el form
+               sigue funcionando (envía por POST nativo). script.js intercepta
+               el submit para dar feedback inline (loading / error / éxito). -->
+          <form class="form reveal" id="contactForm" action="https://formspree.io/f/REEMPLAZAR_FORMSPREE_ID" method="POST" novalidate>
+            <!-- Honeypot: bots reales lo llenan, humanos no. Queda oculto con CSS. -->
+            <div class="form__honeypot" aria-hidden="true">
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form__group">
+              <label for="nombre">Nombre <span class="form__required" aria-hidden="true">*</span></label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" maxlength="120" required aria-required="true" />
+              <small class="form__error" id="error-nombre" data-error="nombre" aria-live="polite"></small>
+            </div>
+
+            <div class="form__group">
+              <label for="email">Email <span class="form__required" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email" inputmode="email" maxlength="254" required aria-required="true" />
+              <small class="form__error" id="error-email" data-error="email" aria-live="polite"></small>
+            </div>
+
+            <div class="form__group">
+              <label for="mensaje">Mensaje <span class="form__required" aria-hidden="true">*</span></label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Contame sobre tu proyecto..." autocomplete="off" maxlength="2000" required aria-required="true"></textarea>
+              <small class="form__error" id="error-mensaje" data-error="mensaje" aria-live="polite"></small>
+              <small class="form__counter" id="mensajeCounter" aria-hidden="true">0 / 2000</small>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block" id="contactSubmit">Enviar mensaje</button>
+            <p class="form__status" id="formStatus" role="status" aria-live="polite" hidden></p>
+          </form>
+
+          <!-- Datos de contacto: el mailto se ensambla en runtime desde config.js -->
+          <aside class="contacto__info reveal">
+            <h3>También podés encontrarme en</h3>
+            <ul class="contacto__list">
+              <li>
+                <span class="contacto__label">Email</span>
+                <a class="email-link" data-email-slot="contact">Ver email</a>
+              </li>
+              <li>
+                <span class="contacto__label">GitHub</span>
+                <a href="https://github.com/zaidac" target="_blank" rel="noopener noreferrer">github.com/zaidac</a>
+              </li>
+              <!--
+              <li>
+                <span class="contacto__label">LinkedIn</span>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">linkedin.com/in/corvexdev</a>
+              </li>
+              -->
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">
+        © <span id="year">2026</span> <strong>CorvexDev</strong> — Tomás Corbo. Todos los derechos reservados.
+      </p>
+      <ul class="footer__social" aria-label="Redes sociales">
+        <li><a href="https://github.com/zaidac" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a></li>
+        <!--
+        <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a></li>
+        -->
+        <li><a class="email-link" data-email-slot="footer" aria-label="Enviar email a Tomás">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts del sitio público. El orden importa:
+         SDK → config.js → supabase-client.js → script.js → projects-public.js
+       config.js tiene que estar antes que script.js porque los bloques 7
+       (form) y 8 (email) leen window.CORVEX_CONFIG.
+       Con defer, los scripts no bloquean el parseo del HTML y se
+       ejecutan en el orden declarado una vez que el DOM está listo. -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.108.2/dist/umd/supabase.min.js"
+    integrity="sha384-JWEyvHh+lRf0sN/WWY+QTQwX+CyWqmNg4tkc8GQzAMEtR2wGNrCJlvnu1lHD1kDm"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    defer
+  ></script>
+  <script src="config.js" defer></script>
+  <script src="supabase-client.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="projects-public.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# El admin no debe aparecer en buscadores ni ser scrapeado.
+Disallow: /admin.html
+Disallow: /admin
