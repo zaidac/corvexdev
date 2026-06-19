@@ -23,8 +23,8 @@ window.CORVEX_CONFIG = {
   // --- Email de contacto ---
   // Una sola fuente de verdad: el HTML trae <template> y script.js
   // arma los mailto: en runtime. Cambiar acá se refleja en contacto y footer.
-  EMAIL_USER:       'tomas.corbo11',
-  EMAIL_DOMAIN:     'gmail.com',
+  EMAIL_USER:       'contacto',
+  EMAIL_DOMAIN:     'corvexdev.com',
 
   // --- Formspree (formulario de contacto) ---
   // 1. Crear cuenta en https://formspree.io y registrar el form.
